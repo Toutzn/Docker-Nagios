@@ -1,5 +1,4 @@
 FROM ubuntu:24.04
-MAINTAINER Jason Rivers <jason@jasonrivers.co.uk>
 
 ENV NAGIOS_HOME            /opt/nagios
 ENV NAGIOS_USER            nagios
@@ -17,12 +16,12 @@ ENV NG_NAGIOS_CONFIG_FILE  ${NAGIOS_HOME}/etc/nagios.cfg
 ENV NG_CGI_DIR             ${NAGIOS_HOME}/sbin
 ENV NG_WWW_DIR             ${NAGIOS_HOME}/share/nagiosgraph
 ENV NG_CGI_URL             /cgi-bin
-ENV NAGIOS_BRANCH          nagios-4.5.7
+ENV NAGIOS_BRANCH          nagios-4.5.10
 ENV NAGIOS_PLUGINS_BRANCH  release-2.4.12
-ENV NRPE_BRANCH            nrpe-4.1.1
-ENV NCPA_BRANCH            v3.1.1
-ENV NSCA_BRANCH            nsca-2.10.2
-ENV NAGIOSTV_VERSION       0.9.2
+ENV NRPE_BRANCH            nrpe-4.1.3
+ENV NCPA_BRANCH            v3.2.1
+ENV NSCA_BRANCH            nsca-2.10.3
+ENV NAGIOSTV_VERSION       0.9.6
 
 
 RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set-selections  && \
@@ -46,9 +45,12 @@ RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set
         libapache2-mod-php                  \
         libcache-memcached-perl             \
         libcgi-pm-perl                      \
+        libcapture-tiny-perl                \
         libcrypt-des-perl                   \
         libcrypt-rijndael-perl              \
         libcrypt-x509-perl                  \
+        libdata-validate-ip-perl            \
+        libdata-validate-domain-perl        \
         libdbd-mysql-perl                   \
         libdbd-pg-perl                      \
         libdbi-dev                          \
@@ -62,11 +64,13 @@ RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set
         libmonitoring-plugin-perl           \
         libmariadb-dev                      \
         libnagios-object-perl               \
+        libnet-ip-perl                      \
         libnet-snmp-perl                    \
         libnet-snmp-perl                    \
         libnet-tftp-perl                    \
         libnet-xmpp-perl                    \
         libpq-dev                           \
+        libreadonly-perl                    \
         libradsec-dev                       \
         libredis-perl                       \
         librrds-perl                        \
